@@ -103,7 +103,7 @@
     </link>
 
     <gazebo reference="chassis_link">
-        <material>Gazebo/cWhite</material>
+        <material>Gazebo/White</material>
     </gazebo>
 
     <!-- left wheel link-->
@@ -136,6 +136,17 @@
         <material>Gazebo/Black</material>
     </gazebo>
     
+
+    <gazebo reference="left_wheel_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo reference="right_wheel_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
     <!-- right wheel link-->
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
