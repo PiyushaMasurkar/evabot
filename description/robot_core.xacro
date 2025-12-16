@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:include filename="inertial_macros.xacro"/>
+    <xacro:include filename="$(find my_bot)/description/inertial_macros.xacro"/>
+
 
     <material name="white">
         <color rgba="1 1 1 1" />
@@ -94,12 +95,16 @@
             <geometry>
                 <cylinder radius="0.5" length="0.2"/>
             </geometry>
-            <material name="transparent_gray"/>
+            <material name="cyan"/>
         </collision>
         <xacro:inertial_cylinder mass="5" length="0.2" radius="0.5">
             <origin xyz="0 0 0.1" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="chassis_link">
+        <material>Gazebo/cWhite</material>
+    </gazebo>
 
     <!-- left wheel link-->
     <joint name="left_wheel_joint" type="continuous">
@@ -126,13 +131,17 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="left_wheel_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
     
     <!-- right wheel link-->
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel_link"/>
         <origin xyz="0 -0.5 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 0 -1"/>
+        <axis xyz="0 0 1"/>
     </joint>
 
     <link name="right_wheel_link">
@@ -152,6 +161,10 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="right_wheel_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
 
     <!--caster wheel limk-->
     <joint name="back_caster_wheel_joint" type="fixed">
@@ -177,6 +190,10 @@
         </xacro:inertial_sphere>
     </link>
 
+    <gazebo reference="back_caster_wheel_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
     <joint name="front_caster_wheel_joint" type="fixed">
         <parent link="base_link"/>
         <child link="front_caster_wheel_link"/>
@@ -199,5 +216,20 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_sphere>
     </link>
+
+    <gazebo reference="front_caster_wheel_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="front_caster_wheel_link">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+    </gazebo>
+
+    <gazebo reference="back_caster_wheel_link">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+    </gazebo>
+
 
 </robot>
