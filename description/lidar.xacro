@@ -27,6 +27,7 @@
     </link>
 
     <gazebo reference="laser_frame">
+        <material>Gazebo/Black</material>
         <sensor type="ray" name="laser">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
