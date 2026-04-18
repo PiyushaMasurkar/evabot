@@ -28,7 +28,7 @@
 
     <gazebo reference="camera_frame">
         <material>Gazebo/Black</material>
-        <sensor type="camera" name="camera">
+        <sensor type="camera" name="depth">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
             <update_rate>30.0</update_rate>
